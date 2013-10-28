@@ -17,8 +17,18 @@
             document.addEventListener("deviceready", onDeviceReady, true);
         }   
         
+        function alertDismissed() {
+        	
+        }
+        
         function submit() {
         	navigator.notification.vibrate( 500 );
+        	navigator.notification.alert(
+                    'You are the winner!',  // message
+                    alertDismissed,         // callback
+                    'Game Over',            // title
+                    'Done'                  // buttonName
+                );
         }
         
 
@@ -27,14 +37,14 @@
 
   </head>
   <body onload="init();" id="stage" class="theme">
-    <h2>Orgware App v1.3</h2>
+    <h2>Orgware App v1.4</h2>
 
 	<span id="app">Your app goes here.</span>
 	<p>
     <span id="devready">onDeviceReady not fired.</span>
     </p>
-	Születési év: <input type="number" name="bday" maxlength="4" min="1920" max="2005" style="width: 7ch" ><br>	
- 	Eltartottak száma : <input name="eltartottszam" pattern="[0-9]" style="width: 2ch" maxlength="1"><br>
+	Születési év: <input name="bday" ><br>	
+ 	Eltartottak száma : <input name="eltartottszam" style="width: 2ch" maxlength="1"><br>
 	<input type="submit" value="Submit" onclick="submit()">
   </body>
 </html>
